@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { EmployeeService } from '../shared/employee.service';
 import { Employee } from '../shared/employee.model';
 import { UserService} from '../user.service';
+import { Router } from '@angular/router';
 
 declare var M: any;
 
@@ -15,7 +16,7 @@ declare var M: any;
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private UserService:UserService) { }
+  constructor(private UserService:UserService,private _router:Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -63,6 +64,15 @@ export class EmployeeComponent implements OnInit {
   onEdit(emp: Employee) {
     this.UserService.selectedEmployee = emp;
   }
+
+  logout(){
+    this.UserService.logout()
+    .subscribe(
+      data=>{console.log(data);this._router.navigate(['/login'])},
+      error=>console.error(error)
+    )
+  }
+
 
   onDelete(_id: string, form: NgForm) {
     if (confirm('Are you sure to delete this record ?') == true) {

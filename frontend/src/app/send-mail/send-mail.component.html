@@ -1,0 +1,33 @@
+<div class="row" style="margin-top:40px; padding:20px; background-color:#eff0f2;border-radius:15px;
+-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);">
+  <!-- <div class="col-sm-12" style="text-align:center;">
+    Register
+  </div> -->
+
+  <div class="col-sm-12">
+    <form [formGroup]="sendMail">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Address</label>
+        <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input formControlName="subject"  class="form-control" id="subject" aria-describedby="emailHelp" placeholder="Enter Subject">
+        <small id="subject" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group">
+          <label for="exampleInputUsername">Message</label>
+          <textarea rows="4" cols="50" formControlName="message" id="message" palceholder="Enter Message Here....."></textarea>
+          <small id="userHelp" class="form-text text-muted"></small>
+      </div>
+     
+      <div class="form-group" style="text-align:center;">
+          <button type="button" class="btn btn-dark" (click)="mail()">Send Mail</button>
+         
+      </div>
+    </form>
+  </div>
+</div>

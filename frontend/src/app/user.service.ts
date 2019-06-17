@@ -45,7 +45,15 @@ export class UserService {
     })
   }
   
+  mail(body:any){
+    console.log("inside services")
+    return this._http.post('http://127.0.0.1:3000/users/sendMail',body,{
+      observe:'body',
+      withCredentials:true,
+      headers:new HttpHeaders().append('Content-Type','application/json')
+    })
 
+  }
 
 
   postEmployee(emp: Employee) {

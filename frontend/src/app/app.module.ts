@@ -11,7 +11,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {UserService} from './user.service';
 
 import { HttpClientModule } from '@angular/common/http';
-import {EmployeeComponent} from './employee/employee.component'
+import {EmployeeComponent} from './employee/employee.component';
+import { SendMailComponent } from './send-mail/send-mail.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {EmployeeComponent} from './employee/employee.component'
     LoginComponent,
     RegisterComponent,
     UserhomeComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    SendMailComponent
   ],
   imports: [
     BrowserModule,

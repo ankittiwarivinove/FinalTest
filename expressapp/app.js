@@ -14,6 +14,10 @@ app.use(cors({
   credentials:true
 }));
 
+
+
+
+
 var mongoose =require('mongoose');
 
 mongoose.connect('mongodb+srv://ank123:ankit123@test-xwakg.mongodb.net/test?retryWrites=true' ,{ useNewUrlParser: true })

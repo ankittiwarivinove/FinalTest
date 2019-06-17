@@ -9,6 +9,8 @@ var ObjectId = require('mongoose').Types.ObjectId;
 //   res.send('respond with a resource');
 // });
 
+var nodemailer = require('nodemailer');
+
 router.post('/register', function (req, res, next) {
    addToDB(req, res);
   
@@ -32,17 +34,6 @@ async function addToDB(req, res) {
     return res.status(501).json(err);
   }
 }
-
-router.post('/update',function(req,res,next){ console.log("hello")
-  // user.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
-  //   if(err){
-  //       res.redirect("/campgrounds");
-  //   } else {
-  //       //redirect somewhere(show page)
-  //       res.redirect("/campgrounds/" + req.params.id);
-  //   }
-  // })
-})
 
 router.post('/login',function(req,res,next){
   passport.authenticate('local', function(err, user, info) {
@@ -123,5 +114,49 @@ router.put('/:id', (req, res) => {
 });
 
 
+
+router.delete('/:id', (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+      return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+  Employee.findByIdAndRemove(req.params.id, (err, doc) => {
+      if (!err) { res.send(doc); }
+      else { console.log('Error in Employee Delete :' + JSON.stringify(err, undefined, 2)); }
+  });
+});
+
+
+
+
+router.post('/sendMail',isValidUser,(req,res)=>{
+   var email=req.body.email;
+   var message=req.body.message;
+   var subject =req.body.subject;
+   var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'ankitcs0028@gmail.com',
+      pass: 'Ankit@123'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'ankitcs0028@gmail.com',
+    to: email,
+    subject: subject,
+    text: message
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.send(doc)
+    }
+  });
+
+
+})
 
 module.exports = router;
