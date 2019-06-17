@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {EmployeeComponent} from './employee/employee.component';
 import { SendMailComponent } from './send-mail/send-mail.component'
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { SendMailComponent } from './send-mail/send-mail.component'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+  
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
