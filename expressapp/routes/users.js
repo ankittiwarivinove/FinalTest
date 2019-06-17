@@ -126,6 +126,7 @@ router.delete('/:id', (req, res) => {
 });
 
 
+<<<<<<< HEAD
 
 
 router.post('/sendMail',isValidUser,(req,res)=>{
@@ -159,4 +160,6 @@ router.post('/sendMail',isValidUser,(req,res)=>{
 
 })
 
+=======
+>>>>>>> e3eddebee21ff13443c2a0ac4511f7edade232b9
 module.exports = router;
