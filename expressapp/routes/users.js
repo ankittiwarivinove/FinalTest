@@ -70,7 +70,7 @@ router.get('/', (req, res) => {
         res.send(docs); 
         //console.log(docs);
       }
-      else { console.log('Error in Retriving Employees :' + JSON.stringify(err, undefined, 2)); }
+      else { res.send(err) }
   });
 });
 
@@ -80,7 +80,7 @@ router.get('/:id', (req, res) => {console.log('hello')
 
   Employee.findById(req.params.id, (err, doc) => {console.log('edit')
       if (!err) { res.send(doc);console.log(doc) }
-      else { console.log('Error in Retriving Employee :' + JSON.stringify(err, undefined, 2)); }
+      else { res.send(err)}
   });
 });
 
@@ -93,7 +93,7 @@ router.post('/', (req, res) => {
   });
   emp.save((err, doc) => {
       if (!err) { res.send(doc); }
-      else { console.log('Error in Employee Save :' + JSON.stringify(err, undefined, 2)); }
+      else { res.send(err) }
   });
 });
 
@@ -109,10 +109,9 @@ router.put('/:id', (req, res) => {
   };
   Employee.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
       if (!err) { res.send(doc); }
-      else { console.log('Error in Employee Update :' + JSON.stringify(err, undefined, 2)); }
+      else { res.send(err) }
   });
 });
-
 
 
 router.delete('/:id', (req, res) => {
@@ -124,9 +123,6 @@ router.delete('/:id', (req, res) => {
       else { console.log('Error in Employee Delete :' + JSON.stringify(err, undefined, 2)); }
   });
 });
-
-
-<<<<<<< HEAD
 
 
 router.post('/sendMail',isValidUser,(req,res)=>{
@@ -160,6 +156,4 @@ router.post('/sendMail',isValidUser,(req,res)=>{
 
 })
 
-=======
->>>>>>> e3eddebee21ff13443c2a0ac4511f7edade232b9
 module.exports = router;

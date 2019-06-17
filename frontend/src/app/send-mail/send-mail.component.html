@@ -1,10 +1,4 @@
-<div class="row" style="margin-top:40px; padding:20px; background-color:#eff0f2;border-radius:15px;
--webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
--moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);">
-  <!-- <div class="col-sm-12" style="text-align:center;">
-    Register
-  </div> -->
+
 
   <div class="col-sm-12">
     <form [formGroup]="sendMail">
@@ -19,15 +13,15 @@ box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);">
         <small id="subject" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
-          <label for="exampleInputUsername">Message</label>
+          <label for="message">Message</label>
           <textarea rows="4" cols="50" formControlName="message" id="message" palceholder="Enter Message Here....."></textarea>
           <small id="userHelp" class="form-text text-muted"></small>
       </div>
      
       <div class="form-group" style="text-align:center;">
           <button type="button" class="btn btn-dark" (click)="mail()">Send Mail</button>
-         
+          <button type="button" class="btn btn-dark" (click)="getMail()">Get List</button>
       </div>
     </form>
   </div>
-</div>
+
