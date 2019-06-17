@@ -120,7 +120,7 @@ router.delete('/:id', (req, res) => {
 
   Employee.findByIdAndRemove(req.params.id, (err, doc) => {
       if (!err) { res.send(doc); }
-      else { console.log('Error in Employee Delete :' + JSON.stringify(err, undefined, 2)); }
+      else { res.send(err) }
   });
 });
 
@@ -146,7 +146,7 @@ router.post('/sendMail',isValidUser,(req,res)=>{
   
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      console.log(error);
+      res.send(err)
     } else {
       console.log('Email sent: ' + info.response);
       res.send(doc)

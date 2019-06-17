@@ -13,6 +13,7 @@ export class UserService {
       headers:new HttpHeaders().append('Content-Type','application/json')
     });
   }
+  
   update(body:any){
     console.log(body);
     return this._http.post('http://127.0.0.1:3000/users/update',body,{
@@ -74,8 +75,4 @@ export class UserService {
     return this._http.delete('http://127.0.0.1:3000/users' + `/${_id}`);
   }
   
-
-
-
-
 }

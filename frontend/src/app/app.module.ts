@@ -12,7 +12,7 @@ import {UserService} from './user.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import {EmployeeComponent} from './employee/employee.component';
-import { SendMailComponent } from './send-mail/send-mail.component'
+import { SendMailComponent } from './send-mail/send-mail.component';
 
 
 @NgModule({
@@ -24,13 +24,12 @@ import { SendMailComponent } from './send-mail/send-mail.component'
     EmployeeComponent,
     SendMailComponent
   ],
-  imports: [
+  imports:[
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-  
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
